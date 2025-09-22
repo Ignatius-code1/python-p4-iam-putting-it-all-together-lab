@@ -44,7 +44,7 @@ class Login(Resource):
 class Logout(Resource):
     def delete(self):
         if session.get('user_id'):
-            session['user_id'] = None
+            session.pop('user_id', None)
             return '', 204
         return {'error': 'Unauthorized'}, 401
 
